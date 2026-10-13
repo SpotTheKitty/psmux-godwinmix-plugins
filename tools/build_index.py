@@ -23,6 +23,10 @@ from describe import first_paragraph, pictures  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 INDEX = ROOT / "index.json"
+# Every listing. A mixer from 0.3.10 on reads this first; an older one never
+# asks for it, so a listing that names `mixer` is only here.
+INDEX2 = ROOT / "index2.json"
+VERSION = re.compile(r"^\d+\.\d+\.\d+$")
 TOPIC = "godwinmix-plugin"
 TRIPLES = ["linux-x86_64", "linux-aarch64", "linux-armv7", "macos-aarch64", "macos-x86_64", "windows-x86_64", "windows-aarch64"]
 SLUG = re.compile(r"^[a-z0-9][a-z0-9-]*$")
@@ -51,6 +55,8 @@ def listings():
             raise SystemExit(f"{path.name}: a plugin in a folder of a larger repository needs `source`, since a release or a git address names a whole repository")
         if not isinstance(item.get("featured", False), bool):
             raise SystemExit(f"{path.name}: `featured` is true or false")
+        if "mixer" in item and not VERSION.match(str(item["mixer"])):
+            raise SystemExit(f"{path.name}: `mixer` is the oldest GodwinMix that runs it, written 0.3.10")
         out.append(item)
     return out
 
@@ -111,6 +117,7 @@ def entry(item, official):
         "tags": [t for t in info.get("topics", []) if t != TOPIC],
         "bundled": bundled,
         "featured": item.get("featured") is True,
+        "mixer": item.get("mixer", ""),
         "versions": [version] if version else [],
     }
     return {k: v for k, v in out.items() if v is not None and v is not False and v != "" and v != []}
@@ -122,8 +129,9 @@ def main():
         print(f"{len(items)} listing files read")
         return 0
     previous = {}
-    if INDEX.exists():
-        previous = {p["name"]: p for p in json.loads(INDEX.read_text(encoding="utf-8")).get("plugins", [])}
+    for path in (INDEX, INDEX2):
+        if path.exists():
+            previous.update({p["name"]: p for p in json.loads(path.read_text(encoding="utf-8")).get("plugins", [])})
     official_text = gh.text("psmux/GodwinMix", "godwinmix-marketplace.json", "main") or "{}"
     official = {p["name"]: p for p in json.loads(official_text).get("plugins", [])}
     plugins, refused = [], []
@@ -137,23 +145,30 @@ def main():
                 plugins.append(previous[item["name"]])
             else:
                 refused.append(item["name"])
-    document = {**HEADER, "plugins": plugins}
-    INDEX.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    report(items, plugins)
+    for path, kept in ((INDEX2, plugins), (INDEX, for_old_mixers(plugins))):
+        document = {**HEADER, "plugins": kept}
+        path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    report(items, plugins, len(for_old_mixers(plugins)))
     if refused:
         print(f"::error::not listed, because their repositories could not be read: {', '.join(refused)}")
         return 1
     return 0
 
 
-def report(items, plugins):
+def for_old_mixers(plugins):
+    """index.json, for a mixer from before 0.3.10: every listing but those that
+    name the oldest mixer they need, since that field arrived with 0.3.10."""
+    return [p for p in plugins if not p.get("mixer")]
+
+
+def report(items, plugins, old):
     """Say which repositories carry the topic and have no listing yet."""
     listed = {i["repo"].lower() for i in items}
     try:
         tagged = [r for r in gh.topic_search(TOPIC) if r.lower() not in listed]
     except Exception as e:  # noqa: BLE001 the search is a courtesy
         tagged, _ = [], print(f"::notice::the topic search did not answer: {e}")
-    lines = [f"Wrote {len(plugins)} plugins to index.json."]
+    lines = [f"Wrote {len(plugins)} plugins to index2.json and {old} to index.json."]
     if tagged:
         lines.append(f"Carrying the `{TOPIC}` topic with no listing yet: {', '.join(tagged)}")
     print("\n".join(lines))

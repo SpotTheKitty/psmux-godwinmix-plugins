@@ -55,7 +55,15 @@ count and the latest release.
    add `title = "Clock"` for a nicer name on the card, and `author` if it is
    not the repository owner. `featured = true` puts `"featured": true` in
    the entry, which a gallery shows first; the maintainers of this list
-   decide which plugins get it.
+   decide which plugins get it. `mixer = "0.3.10"` says the oldest GodwinMix
+   that runs it, for a plugin that needs something only newer mixers do
+   (a panel served from an installed plugin, say).
+
+The workflow writes two files. `index2.json` has every listing and is what a
+mixer from 0.3.10 on reads. `index.json` leaves out every listing that names
+`mixer`, so a mixer from before 0.3.10, which only reads `index.json`, never
+offers a plugin it cannot run. A newer mixer than 0.3.10 that is still older
+than a listing's `mixer` shows the card with `Needs a newer GodwinMix`.
 
 The workflow runs on the pull request and tells you if it could not read your
 repository or your manifest. Once it is merged, your plugin is in the next

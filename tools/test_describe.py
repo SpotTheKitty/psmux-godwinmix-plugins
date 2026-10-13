@@ -115,5 +115,11 @@ class AnyPlatform(unittest.TestCase):
         self.assertEqual(self.platforms("p-1.0.0-windows-x86_64.zip", "company.zip"), ["windows-x86_64"])
 
 
+class OldMixers(unittest.TestCase):
+    def test_a_listing_that_names_a_mixer_stays_out_of_index_json(self):
+        plugins = [{"name": "camera"}, {"name": "hls-player", "mixer": "0.3.10"}]
+        self.assertEqual([p["name"] for p in build_index.for_old_mixers(plugins)], ["camera"])
+
+
 if __name__ == "__main__":
     unittest.main()

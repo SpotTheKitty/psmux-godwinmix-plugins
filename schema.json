@@ -260,6 +260,11 @@
           "format": "uri",
           "description": "The url of the first animation or video in media, for a card that plays it while the pointer is over it. Left out when there is none."
         },
+        "mixer": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+          "description": "The oldest GodwinMix that runs it. A listing with one is written to index2.json only, which mixers from 0.3.10 read and older ones never ask for. Left out when any mixer runs it."
+        },
         "featured": {
           "type": "boolean",
           "description": "The listing asks for the plugin to be shown first in a gallery. Left out when false."

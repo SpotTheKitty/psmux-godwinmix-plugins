@@ -38,7 +38,16 @@ def media_problems(plugin):
 
 def main():
     schema = json.loads((ROOT / "schema.json").read_text(encoding="utf-8"))
-    index = json.loads((ROOT / "index.json").read_text(encoding="utf-8"))
+    problems = []
+    for name in ("index.json", "index2.json"):
+        if (ROOT / name).exists() or name == "index.json":
+            problems += check(schema, name)
+    return report(problems)
+
+
+def check(schema, file):
+    """Every problem in one index file, each naming the file."""
+    index = json.loads((ROOT / file).read_text(encoding="utf-8"))
     problems = [f"{'/'.join(map(str, e.path)) or 'the document'}: {e.message}"
                 for e in jsonschema.Draft202012Validator(schema).iter_errors(index)]
     seen = set()
@@ -52,9 +61,16 @@ def main():
         if plugin.get("source", "").startswith("./") and not plugin.get("bundled"):
             problems.append(f"{name}: a folder source is only for a plugin that ships with the mixer")
         problems += [f"{name}: {line}" for line in media_problems(plugin)]
+        if file == "index.json" and plugin.get("mixer"):
+            problems.append(f"{name}: names `mixer`, so it belongs in index2.json only")
+    print(f"{file}: {len(index.get('plugins', []))} plugins")
+    return [f"{file}: {line}" for line in problems]
+
+
+def report(problems):
     for line in problems:
         print(f"::error::{line}")
-    print(f"{len(index.get('plugins', []))} plugins, {len(problems)} problems")
+    print(f"{len(problems)} problems")
     return 1 if problems else 0
 
 
