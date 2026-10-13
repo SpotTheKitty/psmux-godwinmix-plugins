@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "ndi"
+title = "NDI"
+repo = "psmux/GodwinMix"
+path = "plugins/ndi"
+bundled = true

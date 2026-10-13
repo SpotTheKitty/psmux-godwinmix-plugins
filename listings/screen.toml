@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "screen"
+title = "Screen capture"
+repo = "psmux/GodwinMix"
+path = "plugins/screen"
+bundled = true

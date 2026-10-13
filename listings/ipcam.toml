@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "ipcam"
+title = "IP camera"
+repo = "psmux/GodwinMix"
+path = "plugins/ipcam"
+bundled = true

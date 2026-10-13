@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "audio-device"
+title = "Microphone and sound card"
+repo = "psmux/GodwinMix"
+path = "plugins/audio-device"
+bundled = true

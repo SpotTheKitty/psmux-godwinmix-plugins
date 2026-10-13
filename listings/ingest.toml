@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "ingest"
+title = "Ingest server"
+repo = "psmux/GodwinMix"
+path = "plugins/ingest"
+bundled = true

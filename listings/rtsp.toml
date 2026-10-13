@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "rtsp"
+title = "RTSP server"
+repo = "psmux/GodwinMix"
+path = "plugins/rtsp"
+bundled = true

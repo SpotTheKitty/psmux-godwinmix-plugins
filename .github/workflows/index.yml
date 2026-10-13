@@ -1,0 +1,52 @@
+name: index
+
+# Reads every listed repository and writes index.json. On a pull request it
+# only checks: the listing files parse, every repository can be read, and the
+# index that would be written passes the schema.
+
+on:
+  push:
+    branches: [main]
+    paths: ["listings/**", "tools/**", "schema.json", ".github/workflows/index.yml"]
+  pull_request:
+    paths: ["listings/**", "tools/**", "schema.json"]
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: index-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema==4.23.0
+      - name: Check the listing files
+        run: python tools/build_index.py --offline
+      - name: Read every listed repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/build_index.py
+      - name: Check index.json against the schema
+        run: python tools/validate.py
+      - name: Commit index.json when it changed
+        if: github.event_name != 'pull_request'
+        run: |
+          if git diff --quiet index.json; then
+            echo "index.json is unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json
+          git commit -m "Regenerate index.json from the listed repositories"
+          git push

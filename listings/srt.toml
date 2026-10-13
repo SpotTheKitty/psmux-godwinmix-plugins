@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "srt"
+title = "SRT input"
+repo = "psmux/GodwinMix"
+path = "plugins/srt"
+bundled = true

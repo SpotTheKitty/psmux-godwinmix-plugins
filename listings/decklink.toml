@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "decklink"
+title = "Blackmagic DeckLink"
+repo = "psmux/GodwinMix"
+path = "plugins/decklink"
+bundled = true

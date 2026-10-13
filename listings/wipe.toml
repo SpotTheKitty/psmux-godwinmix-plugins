@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "wipe"
+title = "Wipe transition"
+repo = "psmux/GodwinMix"
+path = "plugins/wipe"
+bundled = true

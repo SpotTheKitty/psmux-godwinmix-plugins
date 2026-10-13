@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "whip"
+title = "WebRTC (WHIP)"
+repo = "psmux/GodwinMix"
+path = "plugins/whip"
+bundled = true

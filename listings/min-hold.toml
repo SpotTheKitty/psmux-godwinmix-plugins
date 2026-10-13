@@ -1,0 +1,6 @@
+# Ships with GodwinMix, so it installs from the copy beside the mixer.
+name = "min-hold"
+title = "Minimum hold"
+repo = "psmux/GodwinMix"
+path = "plugins/min-hold"
+bundled = true
