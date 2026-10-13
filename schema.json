@@ -246,7 +246,23 @@
             "type": "string",
             "format": "uri"
           },
-          "description": "Pictures of it working, URLs: gallery/screenshot-*.png in name order."
+          "description": "Pictures of it working, URLs, in natural name order. Every media entry an img tag can show, so gif and webp are included, and a video never is. A mixer that does not read media reads this."
+        },
+        "media": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/media"
+          },
+          "description": "Every file in the plugin's gallery folder but the icon and the thumbnail, in natural name order, each with what kind of thing it is."
+        },
+        "preview": {
+          "type": "string",
+          "format": "uri",
+          "description": "The url of the first animation or video in media, for a card that plays it while the pointer is over it. Left out when there is none."
+        },
+        "featured": {
+          "type": "boolean",
+          "description": "The listing asks for the plugin to be shown first in a gallery. Left out when false."
         },
         "stars": {
           "type": "integer",
@@ -350,7 +366,7 @@
           "minimum": 1
         },
         "platforms": {
-          "description": "The platform triples this version ships an asset for.",
+          "description": "The platform triples this version ships an asset for, then any when it ships one asset for every platform.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/platform"
@@ -377,10 +393,35 @@
       "type": "string",
       "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+([-+].*)?$"
     },
+    "media": {
+      "title": "Gallery media",
+      "description": "One picture, animation or video from a plugin's gallery folder. png, jpg and jpeg are image; gif is animation; a webp is animation when its header says it is animated and image otherwise; mp4 and webm are video.",
+      "type": "object",
+      "required": [
+        "url",
+        "type"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "animation",
+            "video"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
     "platform": {
-      "description": "One of the seven platform triples the core matches release assets against.",
+      "description": "One of the seven platform triples the core matches release assets against, or any for a single asset that runs everywhere (a name carrying -any. or -any- or _any.), which GodwinMix 0.3.10 and newer install.",
       "type": "string",
       "enum": [
+        "any",
         "linux-x86_64",
         "linux-aarch64",
         "linux-armv7",

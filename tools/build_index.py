@@ -27,6 +27,8 @@ TOPIC = "godwinmix-plugin"
 TRIPLES = ["linux-x86_64", "linux-aarch64", "linux-armv7", "macos-aarch64", "macos-x86_64", "windows-x86_64", "windows-aarch64"]
 SLUG = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 REPO = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
+ANY = re.compile(r"-any[.-]|_any\.", re.I)
+SIGNATURE = (".sigstore.json", ".sigstore", ".bundle", ".sig", ".pem")
 HEADER = {
     "name": "godwinmix-plugins",
     "title": "GodwinMix plugins",
@@ -47,6 +49,8 @@ def listings():
             raise SystemExit(f"{path.name}: `repo` must be owner/repo")
         if item.get("path") and not item.get("bundled") and not item.get("source"):
             raise SystemExit(f"{path.name}: a plugin in a folder of a larger repository needs `source`, since a release or a git address names a whole repository")
+        if not isinstance(item.get("featured", False), bool):
+            raise SystemExit(f"{path.name}: `featured` is true or false")
         out.append(item)
     return out
 
@@ -56,6 +60,8 @@ def version_of(plugin, latest, bundled):
     if latest and not bundled:
         names = [a["name"] for a in latest.get("assets", [])]
         platforms = [t for t in TRIPLES if any(t in n for n in names)]
+        if any(ANY.search(n) and not n.lower().endswith(SIGNATURE) for n in names):
+            platforms.append("any")
         return {"version": latest["tag_name"].lstrip("v"), "api": api, "platforms": platforms, "signed": False}
     if plugin.get("version"):
         return {"version": plugin["version"], "api": api, "platforms": plugin.get("platforms", []), "signed": False}
@@ -76,7 +82,7 @@ def entry(item, official):
         raise RuntimeError(f"the manifest names `{plugin.get('name')}`, the listing `{item['name']}`")
     kinds = list(dict.fromkeys(p.get("kind", "") for p in manifest.get("provides", []) if p.get("kind")))
     readme = gh.text(full, at("README.md"), ref) or ""
-    icon, thumbnail, shots = pictures(full, ref, path, own_repo=not path)
+    shown = pictures(full, ref, path, own_repo=not path)
     rels = [] if (bundled or path) else gh.releases(full)
     latest = next((r for r in rels if not r.get("prerelease")), rels[0] if rels else None)
     version = version_of(plugin, latest, bundled)
@@ -94,14 +100,17 @@ def entry(item, official):
         "repository": info["html_url"] + (f"/tree/{ref}/{path}" if path else ""),
         "homepage": info.get("homepage") or "",
         "author": item.get("author") or ", ".join(plugin.get("authors", [])) or info["owner"]["login"],
-        "icon": icon,
-        "thumbnail": thumbnail,
-        "screenshots": shots,
+        "icon": shown["icon"],
+        "thumbnail": shown["thumbnail"],
+        "screenshots": shown["screenshots"],
+        "media": shown["media"],
+        "preview": shown["preview"],
         "stars": info.get("stargazers_count", 0),
         "downloads": None if bundled else sum(a.get("download_count", 0) for r in rels for a in r.get("assets", [])),
         "updated": (latest or {}).get("published_at") or (gh.last_change(full, path) if path else info.get("pushed_at")) or "",
         "tags": [t for t in info.get("topics", []) if t != TOPIC],
         "bundled": bundled,
+        "featured": item.get("featured") is True,
         "versions": [version] if version else [],
     }
     return {k: v for k, v in out.items() if v is not None and v is not False and v != "" and v != []}

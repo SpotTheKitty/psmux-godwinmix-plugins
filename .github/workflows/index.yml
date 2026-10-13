@@ -32,6 +32,8 @@ jobs:
       - run: pip install jsonschema==4.23.0
       - name: Check the listing files
         run: python tools/build_index.py --offline
+      - name: Test the tools offline
+        run: python -m unittest discover -s tools -p "test_*.py"
       - name: Read every listed repository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -22,6 +22,20 @@ SOURCE = re.compile(
 )
 
 
+def media_problems(plugin):
+    """The preview is an animation or video in media, and every screenshot is
+    a media url when there is media."""
+    media = plugin.get("media")
+    moving = {m.get("url") for m in media or [] if m.get("type") in ("animation", "video")}
+    out = []
+    if "preview" in plugin and plugin["preview"] not in moving:
+        out.append(f"preview `{plugin['preview']}` is not an animation or video in media")
+    if media is not None:
+        urls = {m.get("url") for m in media}
+        out += [f"screenshot `{s}` is not in media" for s in plugin.get("screenshots", []) if s not in urls]
+    return out
+
+
 def main():
     schema = json.loads((ROOT / "schema.json").read_text(encoding="utf-8"))
     index = json.loads((ROOT / "index.json").read_text(encoding="utf-8"))
@@ -37,6 +51,7 @@ def main():
             problems.append(f"{name}: `{plugin.get('source')}` is not a source the core installs")
         if plugin.get("source", "").startswith("./") and not plugin.get("bundled"):
             problems.append(f"{name}: a folder source is only for a plugin that ships with the mixer")
+        problems += [f"{name}: {line}" for line in media_problems(plugin)]
     for line in problems:
         print(f"::error::{line}")
     print(f"{len(index.get('plugins', []))} plugins, {len(problems)} problems")

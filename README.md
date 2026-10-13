@@ -21,16 +21,29 @@ count and the latest release.
 3. Add pictures if you have them, in a `gallery` folder at the root:
    * `gallery/icon.png`, square, 256 by 256 is plenty.
    * `gallery/thumbnail.png`, the card's picture, 16 by 9, 1280 by 720.
-   * `gallery/screenshot-1.png`, `gallery/screenshot-2.png` and so on, for
-     the detail view, in name order.
+   * Anything else for the detail view: `screenshot-1.png`, `demo.gif`,
+     `tour.mp4`. Any file name works. The types read are `.png`, `.jpg`,
+     `.jpeg`, `.gif`, `.webp`, `.mp4` and `.webm`, and they are shown in
+     natural name order, so `screenshot-2` comes before `screenshot-10`.
 
-   With no thumbnail the first screenshot is used, and with no screenshots
-   the repository's social preview.
+   With no thumbnail the first still or animated picture is used, and with
+   none of those the repository's social preview.
+
+   Each entry in the index then carries `media`, a list of
+   `{ "url": ..., "type": ... }` where the type is `image` (png, jpg),
+   `animation` (gif, or a webp that really is animated) or `video` (mp4,
+   webm). `screenshots` keeps the plain list of URLs that older mixers read:
+   the images and animations, never a video. `preview` is the first
+   animation or video, which a card plays while the pointer is over it.
 4. Publish a GitHub release with one asset per platform, each name carrying
    the platform: `myplugin-1.0.0-windows-x86_64.zip`,
-   `myplugin-1.0.0-linux-x86_64.tar.gz`. With no release assets the listing
-   points at your git repository instead, and the mixer builds the plugin
-   with the `[build]` section of your manifest.
+   `myplugin-1.0.0-linux-x86_64.tar.gz`. Names with the platform in them
+   work with every GodwinMix version. A pure Python plugin, or any other
+   that runs the same everywhere, can ship one `myplugin-1.0.0-any.zip`
+   instead and its version lists the platform `any`; that needs GodwinMix
+   0.3.10 or newer, and older mixers show it as not for this computer. With
+   no release assets the listing points at your git repository instead, and
+   the mixer builds the plugin with the `[build]` section of your manifest.
 5. Open a pull request adding `listings/<name>.toml`:
 
    ```toml
@@ -40,7 +53,9 @@ count and the latest release.
 
    `name` is the plugin's name from its manifest and the file's name. You can
    add `title = "Clock"` for a nicer name on the card, and `author` if it is
-   not the repository owner.
+   not the repository owner. `featured = true` puts `"featured": true` in
+   the entry, which a gallery shows first; the maintainers of this list
+   decide which plugins get it.
 
 The workflow runs on the pull request and tells you if it could not read your
 repository or your manifest. Once it is merged, your plugin is in the next
@@ -89,6 +104,7 @@ repository gives them, and their star count is the GodwinMix repository's.
 | `listings/*.toml` | one per plugin, added by pull request |
 | `tools/build_index.py` | reads every listed repository and writes `index.json` |
 | `tools/validate.py` | checks `index.json` against the schema |
+| `tools/test_*.py` | offline tests for the tools, `python -m unittest discover -s tools -p "test_*.py"` |
 | `.github/workflows/index.yml` | runs both on every change and once a day |
 
 The tools need Python 3.11 or newer and nothing else, except `validate.py`,
