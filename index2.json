@@ -162,6 +162,75 @@
       ]
     },
     {
+      "name": "hls-player",
+      "source": "psmux/godwinmix-hls-player",
+      "title": "HLS Player",
+      "description": "An HLS player any website can embed with an iframe or a script tag, and a panel that lists the mixer's channel watch links, previews each one and copies the embed code.",
+      "tier": "custom",
+      "kinds": [
+        "panel"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/psmux/godwinmix-hls-player",
+      "homepage": "https://psmux.github.io/godwinmix-hls-player/",
+      "author": "psmux",
+      "icon": "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/icon.png",
+      "thumbnail": "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/thumbnail.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/demo.gif",
+        "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/screenshot-1.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/screenshot-2.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/screenshot-3.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/screenshot-4.png"
+      ],
+      "media": [
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/demo.gif",
+          "type": "animation"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/screenshot-1.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/screenshot-2.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/screenshot-3.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/screenshot-4.png",
+          "type": "image"
+        }
+      ],
+      "preview": "https://raw.githubusercontent.com/psmux/godwinmix-hls-player/main/gallery/demo.gif",
+      "stars": 0,
+      "downloads": 3,
+      "updated": "2026-10-13T19:23:55Z",
+      "tags": [
+        "hls",
+        "video-player"
+      ],
+      "featured": true,
+      "mixer": "0.3.10",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": 1,
+          "platforms": [
+            "linux-x86_64",
+            "linux-aarch64",
+            "macos-aarch64",
+            "macos-x86_64",
+            "windows-x86_64"
+          ],
+          "signed": false
+        }
+      ]
+    },
+    {
       "name": "icecast",
       "source": "./plugins/icecast",
       "title": "Icecast radio",
@@ -206,7 +275,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/ingest",
       "author": "GodwinMix",
       "stars": 8,
-      "updated": "2026-10-13T06:20:29Z",
+      "updated": "2026-10-13T15:16:37Z",
       "bundled": true,
       "versions": [
         {
@@ -426,6 +495,152 @@
       "versions": [
         {
           "version": "0.1.0",
+          "api": 1,
+          "platforms": [
+            "linux-x86_64",
+            "linux-aarch64",
+            "macos-aarch64",
+            "macos-x86_64",
+            "windows-x86_64"
+          ],
+          "signed": false
+        }
+      ]
+    },
+    {
+      "name": "scripture",
+      "source": "psmux/godwinmix-scripture",
+      "title": "Bible Verses and Lyrics",
+      "description": "Bible verses and song lyrics on the programme for churches: type John 3:16 or search words in the bundled King James and World English Bibles or a translation you are licensed to show, keep a song library with verse, chorus and bridge order, step through slides with the keyboard, and show them in lower third, full screen or centred styles with a stage display for the band",
+      "tier": "custom",
+      "kinds": [
+        "service",
+        "panel"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/psmux/godwinmix-scripture",
+      "author": "psmux",
+      "icon": "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/icon.png",
+      "thumbnail": "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/thumbnail.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/demo.gif",
+        "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-1.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-2.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-3.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-4.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-5.png"
+      ],
+      "media": [
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/demo.gif",
+          "type": "animation"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-1.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-2.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-3.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-4.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/screenshot-5.png",
+          "type": "image"
+        }
+      ],
+      "preview": "https://raw.githubusercontent.com/psmux/godwinmix-scripture/main/gallery/demo.gif",
+      "stars": 0,
+      "downloads": 1,
+      "updated": "2026-10-13T20:00:21Z",
+      "tags": [
+        "bible",
+        "church",
+        "lyrics"
+      ],
+      "featured": true,
+      "mixer": "0.3.10",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": 1,
+          "platforms": [
+            "linux-x86_64",
+            "linux-aarch64",
+            "macos-aarch64",
+            "macos-x86_64",
+            "windows-x86_64"
+          ],
+          "signed": false
+        }
+      ]
+    },
+    {
+      "name": "social-chat",
+      "source": "psmux/godwinmix-social-chat",
+      "title": "Social Chat",
+      "description": "Live comments from YouTube, Twitch, Facebook and any platform that can POST a webhook, merged into one panel in the mixer, with filters, search, pins, local bans, highlighted questions and a button that puts a comment on air as a card or a lower third.",
+      "tier": "custom",
+      "kinds": [
+        "service",
+        "panel"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/psmux/godwinmix-social-chat",
+      "homepage": "https://github.com/psmux/GodwinMix",
+      "author": "psmux",
+      "icon": "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/icon.png",
+      "thumbnail": "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/thumbnail.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/demo.gif",
+        "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-1.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-2.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-3.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-4.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-5.png"
+      ],
+      "media": [
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/demo.gif",
+          "type": "animation"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-1.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-2.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-3.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-4.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/screenshot-5.png",
+          "type": "image"
+        }
+      ],
+      "preview": "https://raw.githubusercontent.com/psmux/godwinmix-social-chat/main/gallery/demo.gif",
+      "stars": 0,
+      "downloads": 1,
+      "updated": "2026-10-14T04:29:19Z",
+      "featured": true,
+      "mixer": "0.3.10",
+      "versions": [
+        {
+          "version": "1.0.0",
           "api": 1,
           "platforms": [
             "linux-x86_64",
