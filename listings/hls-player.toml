@@ -1,0 +1,5 @@
+name = "hls-player"
+repo = "psmux/godwinmix-hls-player"
+title = "HLS Player"
+mixer = "0.3.10"
+featured = true

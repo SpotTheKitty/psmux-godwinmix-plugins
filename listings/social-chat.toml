@@ -1,0 +1,5 @@
+name = "social-chat"
+repo = "psmux/godwinmix-social-chat"
+title = "Social Chat"
+mixer = "0.3.10"
+featured = true

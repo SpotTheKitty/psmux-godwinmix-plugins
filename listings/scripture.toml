@@ -1,0 +1,5 @@
+name = "scripture"
+repo = "psmux/godwinmix-scripture"
+title = "Bible Verses and Lyrics"
+mixer = "0.3.10"
+featured = true
