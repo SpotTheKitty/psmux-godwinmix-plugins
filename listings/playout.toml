@@ -1,0 +1,5 @@
+name = "playout"
+repo = "psmux/godwinmix-playout"
+title = "Playout"
+mixer = "0.3.13"
+featured = true
