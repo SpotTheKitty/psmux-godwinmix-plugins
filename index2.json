@@ -447,6 +447,76 @@
       ]
     },
     {
+      "name": "playout",
+      "source": "psmux/godwinmix-playout",
+      "title": "Playout",
+      "description": "A playlist as one source: video, sound and picture files played back to back with no black frame, no gap in the sound and no jump in time between them, in any mix of sizes, frame rates and codecs. Loop the list or one item, shuffle, cue, skip, seek, in and out points, hold on a last frame, and a panel to run it all from. Native Rust, with the platform's own video decoders and no FFmpeg.",
+      "tier": "custom",
+      "kinds": [
+        "source",
+        "panel"
+      ],
+      "license": "Apache-2.0",
+      "repository": "https://github.com/psmux/godwinmix-playout",
+      "author": "psmux",
+      "icon": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/icon.png",
+      "thumbnail": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/thumbnail.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/demo.gif",
+        "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-1.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-2.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-3.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-4.png",
+        "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-5.png"
+      ],
+      "media": [
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/demo.gif",
+          "type": "animation"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-1.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-2.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-3.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-4.png",
+          "type": "image"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/screenshot-5.png",
+          "type": "image"
+        }
+      ],
+      "preview": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/demo.gif",
+      "stars": 0,
+      "downloads": 1,
+      "updated": "2026-10-15T18:28:40Z",
+      "featured": true,
+      "mixer": "0.3.13",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "api": 1,
+          "platforms": [
+            "linux-x86_64",
+            "linux-aarch64",
+            "macos-aarch64",
+            "macos-x86_64",
+            "windows-x86_64"
+          ],
+          "signed": false
+        }
+      ]
+    },
+    {
       "name": "rtsp",
       "source": "./plugins/rtsp",
       "title": "RTSP server",
