@@ -19,7 +19,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/audio-device",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-08T12:31:29Z",
       "tags": [
         "broadcaster",
@@ -73,7 +73,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/camera",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-05T14:22:58Z",
       "tags": [
         "broadcaster",
@@ -127,7 +127,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/decklink",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-03T08:40:24Z",
       "tags": [
         "broadcaster",
@@ -179,7 +179,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/director",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-03T08:40:24Z",
       "tags": [
         "broadcaster",
@@ -231,7 +231,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/file-record",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-03T14:59:30Z",
       "tags": [
         "broadcaster",
@@ -354,7 +354,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/icecast",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-10T17:55:34Z",
       "tags": [
         "broadcaster",
@@ -407,7 +407,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/ingest",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-24T03:38:51Z",
       "tags": [
         "broadcaster",
@@ -460,7 +460,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/ipcam",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-05T14:55:23Z",
       "tags": [
         "broadcaster",
@@ -512,7 +512,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/min-hold",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-09-15T17:15:40Z",
       "tags": [
         "broadcaster",
@@ -566,7 +566,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/ndi",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-03T17:01:29Z",
       "tags": [
         "broadcaster",
@@ -619,7 +619,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/ograf",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-05T19:34:27Z",
       "tags": [
         "broadcaster",
@@ -671,7 +671,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/osc",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-03T08:40:24Z",
       "tags": [
         "broadcaster",
@@ -793,7 +793,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/rtsp",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-20T22:09:30Z",
       "tags": [
         "broadcaster",
@@ -846,7 +846,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/screen",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-05T13:52:06Z",
       "tags": [
         "broadcaster",
@@ -1044,7 +1044,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/srt",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-03T08:40:24Z",
       "tags": [
         "broadcaster",
@@ -1096,7 +1096,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/tally",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-03T08:40:29Z",
       "tags": [
         "broadcaster",
@@ -1149,7 +1149,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/udp",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-10T19:07:30Z",
       "tags": [
         "broadcaster",
@@ -1202,7 +1202,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/whip",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-10T17:40:16Z",
       "tags": [
         "broadcaster",
@@ -1254,7 +1254,7 @@
       "repository": "https://github.com/psmux/GodwinMix/tree/main/plugins/wipe",
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
-      "stars": 9,
+      "stars": 10,
       "updated": "2026-10-03T08:40:24Z",
       "tags": [
         "broadcaster",
