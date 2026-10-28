@@ -408,7 +408,7 @@
       "homepage": "https://godwinmix.ripeflow.com",
       "author": "GodwinMix",
       "stars": 10,
-      "updated": "2026-10-24T03:38:51Z",
+      "updated": "2026-10-28T06:52:14Z",
       "tags": [
         "broadcaster",
         "headend",
@@ -761,7 +761,7 @@
       ],
       "preview": "https://raw.githubusercontent.com/psmux/godwinmix-playout/main/gallery/demo.gif",
       "stars": 0,
-      "downloads": 4,
+      "downloads": 5,
       "updated": "2026-10-15T18:28:40Z",
       "featured": true,
       "mixer": "0.3.13",
